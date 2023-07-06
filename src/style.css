@@ -1,0 +1,17 @@
+body{
+    background-color: #67595E;
+}
+
+h1{
+    text-align: center;
+    color: #EED6D3;
+
+}
+.btn{
+    background-color: #A49393;
+    margin: 0 auto;
+    display: block;
+    border-color: #636059;
+    width: 200px;
+
+}
