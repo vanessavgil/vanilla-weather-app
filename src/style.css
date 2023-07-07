@@ -3,20 +3,7 @@ body{
     font-family: arial, sans-serif;
 }
 
-.btn{
-    background-color: #A49393;
-    margin: 0 auto;
-    display: block;
-    border-color: #636059;
-    width: 200px;
-}
-.weather-app{
-    max-width: 600px;
-    margin: 30px auto;
-    padding: 20px;
-    border: 1px solid #FBE5C8;
-    border-radius: 20px;
-}
+
  h1{
     color: #EED6D3;;
     display: block;
@@ -44,3 +31,20 @@ body{
     line-height: 19.2px;
     
  }
+.btn{
+    background-color: #A49393;
+    margin: 0 auto;
+    display: block;
+    border-color: #636059;
+    width: 200px;
+}
+.weather-app-wrapper{
+    max-width: 600px;
+    margin: 30px auto;
+}
+.weather-app{
+    
+    padding: 20px;
+    border: 1px solid #FBE5C8;
+    border-radius: 20px;
+}
