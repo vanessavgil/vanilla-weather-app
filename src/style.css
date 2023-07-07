@@ -21,7 +21,7 @@ body{
  }
  li{
     list-style: none;
-    color: rgb(135, 135, 135);
+    color: A49393;
     margin: 0;
     padding: 0;
     font-family: arial, sans-serif;
@@ -48,6 +48,25 @@ body{
     margin: 30px auto;
     border: 1px solid #FBE5C8;
     border-radius: 20px;
+}
+
+.d-flex-weather-temperature img{
+    margin-right: 5px;
+    float: left;
+    height: 64;
+    width: 64px;
+
+}
+.d-flex-weather-temperature strong{
+    font-size: 64px;
+    color: rg(33, 33, 33);
+    font-weight: 400;
+    line-height: 1;
+}
+.d-flex-weather-temperature .units {
+position: relative;
+font-size: 16px;
+top: -32px;
 }
 
 .overview{
