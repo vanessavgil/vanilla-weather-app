@@ -24,31 +24,44 @@ return `${day} ${hours}:${minutes}`;
 function displayTemperature(response){
     
     let temperatureElement = document.querySelector("#temperature");
-    temperatureElement.innerHTML = Math.round(response.data.main.temp);
+    
 
     let cityElement = document.querySelector("#city");
-    cityElement.innerHTML = response.data.name;
+    
 
     let descriptionElement = document.querySelector("#description");
-    descriptionElement.innerHTML = response.data.weather[0].description;
+    
 
     let humidityElement = document.querySelector("#humidity");
-    humidityElement.innerHTML = response.data.main.humidity;
+   
 
     let windElement =document.querySelector("#wind");
-    windElement.innerHTML = Math.round(response.data.wind.speed);
+    
 
     let dateElement = document.querySelector("#date");
-    dateElement.innerHTML = formatDate(response.data.dt*1000);
+    
 
     let iconElement = document.querySelector("#icon");
-    iconElement.setAttribute("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-    iconElement.setAttribute("alt", response.data.weather[0].description);
+    
+
+    celsiusTemperature = response.data.main.temp;
+
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+    cityElement.innerHTML = response.data.name;
+    descriptionElement.innerHTML = response.data.weather[0].description;
+     humidityElement.innerHTML = response.data.main.humidity;
+     windElement.innerHTML = Math.round(response.data.wind.speed);
+     dateElement.innerHTML = formatDate(response.data.dt * 1000);
+     iconElement.setAttribute(
+       "src",
+       `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+     );
+     iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function search(city){
 let apiKey = "5f2a54906ddaac5f7865c52af1ed9094";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayTemperature);
 }
 
@@ -58,9 +71,23 @@ function handleSubmit(event){
     search(cityInputElement.value);
 }
 
-search("New York");
+function displayFahrenheitTemperature(event){
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
+    let fahrenheitTemperature = (celsiusTemperature * 9)/5 + 32
+    ;
+temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let celsiusTemperature = null;
+
+
 
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+search("New York");
