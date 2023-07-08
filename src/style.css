@@ -35,6 +35,7 @@ body{
  li:first-letter{
 text-transform: capitalize;
  }
+ 
 .btn{
     background-color: #A49393;
     margin: 0 auto;
