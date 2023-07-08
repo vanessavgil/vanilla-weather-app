@@ -21,6 +21,7 @@ body{
  }
  li{
     list-style: none;
+    text-transform: capitalize;
     color: A49393;
     margin: 0;
     padding: 0;
