@@ -1,5 +1,5 @@
 function formatDate(timestamp){
-//calculate the date
+
 let date = new Date(timestamp);
 let hours = date.getHours();
 if (hours < 10){
@@ -22,7 +22,6 @@ let day = days[date.getDay()];
 return `${day} ${hours}:${minutes}`;
 }
 function displayTemperature(response){
-    console.log(response.data);
     
     let temperatureElement = document.querySelector("#temperature");
     temperatureElement.innerHTML = Math.round(response.data.main.temp);
@@ -43,8 +42,8 @@ function displayTemperature(response){
     dateElement.innerHTML = formatDate(response.data.dt*1000);
 }
 let apiKey = "5f2a54906ddaac5f7865c52af1ed9094";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=New York&appid=${apiKey}&units=imperial`;
-console.log(apiUrl);
+let city = "Paris";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
 axios.get(apiUrl).then(displayTemperature);
 
