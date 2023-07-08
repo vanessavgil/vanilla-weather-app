@@ -26,10 +26,14 @@ function displayForecast(){
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  forecastHTML = forecastHTML + `
+  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
 
   <div class="col-2">
-    <div class="weather-forecast-date">Thurs</div>
+    <div class="weather-forecast-date">${day}</div>
     <img
       src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
       alt="partly cloudy"
@@ -40,29 +44,11 @@ function displayForecast(){
       <span class="weather-forecast-temp-min">12° </span>
     </div>
   </div>
-`; 
-forecastHTML =
-  forecastHTML +
-  `
-  
-  <div class="col-2">
-    <div class="weather-forecast-date">Thurs</div>
-    <img
-      src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-      alt="partly cloudy"
-      width="26px"
-    />
-    <div class="weather-forecast-temperature">
-      <span class="weather-forecast-temp-max">18° </span>
-      <span class="weather-forecast-temp-min">12° </span>
-    </div>
-  </div>
-
-`; 
-forecastHTML = forecastHTML + `</div>`
+`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
 
 
 function displayTemperature(response){
