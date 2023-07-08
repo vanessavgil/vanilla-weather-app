@@ -22,7 +22,6 @@ let day = days[date.getDay()];
 return `${day} ${hours}:${minutes}`;
 }
 function displayTemperature(response){
-    console.log
     
     let temperatureElement = document.querySelector("#temperature");
     temperatureElement.innerHTML = Math.round(response.data.main.temp);
@@ -44,6 +43,7 @@ function displayTemperature(response){
 
     let iconElement = document.querySelector("#icon");
     iconElement.setAttribute("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 let apiKey = "5f2a54906ddaac5f7865c52af1ed9094";
 let city = "New York";
